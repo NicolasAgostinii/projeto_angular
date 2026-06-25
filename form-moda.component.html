@@ -1,0 +1,73 @@
+<div class="modal-overlay" *ngIf="visivel" (click)="fechar()"></div>
+
+<div class="modal" *ngIf="visivel">
+  <div class="modal-header">
+    <h2 class="modal-titulo">
+      {{ modoEdicao ? '✏️ Editar publicação' : 'Nova publicação' }}
+    </h2>
+    <button class="btn-fechar" (click)="fechar()">✕</button>
+  </div>
+
+  <div class="modal-corpo">
+
+    <div class="campo">
+      <label for="titulo">Título</label>
+      <input
+        id="titulo"
+        type="text"
+        [(ngModel)]="titulo"
+        placeholder="Ex: Look casual de inverno"
+        [class.erro]="erros['titulo']"
+      />
+      <span class="mensagem-erro" *ngIf="erros['titulo']">{{ erros['titulo'] }}</span>
+    </div>
+
+    <div class="campo">
+      <label for="descricao">Descrição</label>
+      <textarea
+        id="descricao"
+        [(ngModel)]="descricao"
+        placeholder="Descreva o look, as peças utilizadas e a ocasião..."
+        rows="3"
+        [class.erro]="erros['descricao']"
+      ></textarea>
+      <span class="mensagem-erro" *ngIf="erros['descricao']">{{ erros['descricao'] }}</span>
+    </div>
+
+    <div class="campo">
+      <label for="imagem">URL da Imagem</label>
+      <input
+        id="imagem"
+        type="text"
+        [(ngModel)]="imagem"
+        placeholder="https://exemplo.com/foto.jpg"
+        [class.erro]="erros['imagem']"
+      />
+      <span class="mensagem-erro" *ngIf="erros['imagem']">{{ erros['imagem'] }}</span>
+
+      <div class="preview-imagem" *ngIf="imagem">
+        <img
+          [src]="imagem"
+          alt="Preview"
+          onerror="this.style.display='none'"
+        />
+      </div>
+    </div>
+
+    <div class="campo">
+      <label for="categoria">Categoria <span class="opcional">(opcional)</span></label>
+      <select id="categoria" [(ngModel)]="categoria">
+        <option value="">Selecione uma categoria</option>
+        <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="modal-rodape">
+    <button class="btn-cancelar" (click)="fechar()">Cancelar</button>
+    <button class="btn-salvar" (click)="salvar()">
+      {{ modoEdicao ? 'Salvar alterações' : 'Publicar' }}
+    </button>
+  </div>
+</div>
