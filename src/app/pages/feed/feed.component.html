@@ -1,0 +1,90 @@
+<div class="feed-container">
+
+  <header class="feed-header">
+    <div class="header-esquerda">
+      <span class="header-logo">BluGala</span>
+    </div>
+
+    <div class="header-busca">
+      <input
+        type="text"
+        [(ngModel)]="termoBusca"
+        placeholder="Buscar looks..."
+        class="input-busca"
+      />
+    </div>
+
+    <button class="btn-nova-publicacao" (click)="abrirFormCriacao()">
+      + Nova publicação
+    </button>
+  </header>
+
+  <div class="filtros" *ngIf="categorias.length > 0">
+    <button
+      class="filtro-btn"
+      [class.ativo]="categoriaFiltro === ''"
+      (click)="categoriaFiltro = ''"
+    >Todos</button>
+
+    <button
+      class="filtro-btn"
+      *ngFor="let cat of categorias"
+      [class.ativo]="categoriaFiltro === cat"
+      (click)="categoriaFiltro = cat"
+    >{{ cat }}</button>
+  </div>
+
+  <div class="resultado-info" *ngIf="termoBusca || categoriaFiltro">
+    <span>{{ publicacoesFiltradas.length }} resultado(s)</span>
+    <button class="btn-limpar" (click)="limparFiltros()">Limpar filtros ✕</button>
+  </div>
+
+  <main class="feed-grade" *ngIf="publicacoesFiltradas.length > 0; else semResultados">
+    <app-card-moda
+      *ngFor="let pub of publicacoesFiltradas"
+      [publicacao]="pub"
+      (aoEditar)="abrirFormEdicao($event)"
+      (aoExcluir)="excluirPublicacao($event)"
+      (aoVerDetalhes)="verDetalhes($event)"
+    ></app-card-moda>
+  </main>
+
+  <ng-template #semResultados>
+    <div class="estado-vazio">
+      <span class="vazio-icone">🪡</span>
+      <p class="vazio-titulo">Nenhum look encontrado</p>
+      <p class="vazio-descricao" *ngIf="termoBusca || categoriaFiltro">
+        Tente outros termos ou limpe os filtros.
+      </p>
+      <button class="btn-nova-publicacao" (click)="abrirFormCriacao()" *ngIf="!termoBusca && !categoriaFiltro">
+        + Publicar o primeiro look
+      </button>
+    </div>
+  </ng-template>
+
+</div>
+
+<app-form-moda
+  [visivel]="formVisivel"
+  [publicacaoParaEditar]="publicacaoParaEditar"
+  (aoSalvar)="salvarPublicacao($event)"
+  (aoFechar)="fecharForm()"
+></app-form-moda>
+
+<div class="modal-overlay" *ngIf="publicacaoDetalhes" (click)="fecharDetalhes()"></div>
+<div class="modal-detalhes" *ngIf="publicacaoDetalhes">
+  <button class="btn-fechar-detalhes" (click)="fecharDetalhes()">✕</button>
+  <img [src]="publicacaoDetalhes.imagem" [alt]="publicacaoDetalhes.titulo" class="detalhes-imagem" />
+  <div class="detalhes-corpo">
+    <span class="detalhes-categoria" *ngIf="publicacaoDetalhes.categoria">
+      {{ publicacaoDetalhes.categoria }}
+    </span>
+    <h2 class="detalhes-titulo">{{ publicacaoDetalhes.titulo }}</h2>
+    <p class="detalhes-descricao">{{ publicacaoDetalhes.descricao }}</p>
+    <div class="detalhes-acoes">
+      <button class="btn-editar-detalhes" (click)="abrirFormEdicao(publicacaoDetalhes!); fecharDetalhes()">
+        ✏️ Editar
+      </button>
+    </div>
+  </div>
+</div>
