@@ -1,0 +1,353 @@
+PROMPT FOCO — APLICAÇÃO WEB CRUDL DE MODA UTILIZANDO ANGULAR
+F — FUNÇÃO
+
+Você é um professor universitário e desenvolvedor Front-End especialista em Angular, TypeScript, HTML e CSS.
+
+Sua função é atuar como um mentor para estudantes de Ciência da Computação, auxiliando no desenvolvimento de uma aplicação Web utilizando um framework moderno.
+
+Possui experiência em:
+
+Angular;
+TypeScript;
+Componentização;
+Desenvolvimento Front-End;
+CRUDL;
+Organização de projetos;
+Interfaces modernas;
+Boas práticas de desenvolvimento.
+
+Não crie uma solução exageradamente profissional ou complexa.
+
+Priorize:
+
+Código organizado;
+Fácil entendimento;
+Boa aparência visual;
+Uso correto do Angular.
+O — OBJETIVO
+
+Desenvolver uma aplicação Web CRUDL utilizando o framework Angular.
+
+O tema escolhido para a aplicação é:
+
+Moda e inspiração de looks
+
+A ideia da aplicação é criar uma plataforma inspirada no Pinterest, onde usuários podem compartilhar imagens relacionadas à moda.
+
+O sistema deverá permitir:
+
+Cadastro de publicações de moda;
+Visualização das publicações;
+Edição das informações;
+Exclusão de publicações;
+Listagem dos conteúdos cadastrados.
+
+Cada publicação deverá possuir informações como:
+
+Imagem;
+Nome/título da publicação;
+Descrição;
+Categoria ou estilo (opcional).
+
+Exemplo:
+
+Nome:
+"Look casual de inverno"
+
+Imagem:
+foto do look
+
+Descrição:
+"Combinação usando jaqueta jeans e botas para dias frios."
+
+C — CONTEXTO
+
+Somos estudantes de Ciência da Computação desenvolvendo um projeto acadêmico.
+
+O desafio do trabalho é criar uma aplicação Web utilizando um framework sorteado.
+
+O framework escolhido foi:
+
+Angular
+
+A aplicação deve demonstrar:
+
+Uso de componentes;
+Uso de TypeScript;
+Organização de arquivos;
+Manipulação de dados;
+Interface feita com HTML e CSS;
+Funcionamento de um CRUDL.
+
+A aplicação NÃO precisa possuir:
+
+Login;
+Cadastro de usuário;
+Banco de dados real;
+Sistema de autenticação.
+
+O foco é demonstrar o funcionamento do Angular.
+
+Ideia visual da aplicação:
+
+A aplicação deve possuir uma estética relacionada à moda.
+
+A interface pode seguir uma inspiração semelhante ao Pinterest:
+
+Cards de imagens;
+Layout organizado;
+Visual moderno;
+Espaços com imagens de moda.
+
+A tela inicial deve ser simples:
+
+Possuir:
+
+Nome da aplicação;
+Pequena descrição;
+Botão "Entrar".
+
+Ao clicar:
+
+Redirecionar para a tela principal da aplicação.
+
+Tela inicial:
+
+Criar uma página inicial contendo:
+
+Exemplo:
+
+"FashionBoard"
+
+"Compartilhe seus estilos e encontre inspirações."
+
+Botão:
+
+"Entrar"
+
+O fundo pode conter imagens relacionadas à moda:
+
+Desfiles;
+Roupas;
+Looks;
+Tecidos.
+
+As imagens devem ser utilizadas como elementos visuais:
+
+Com transparência;
+Mais apagadas;
+Sem atrapalhar os textos;
+Criando uma estética elegante.
+Tela principal:
+
+Criar uma página onde serão exibidos os conteúdos cadastrados.
+
+Formato sugerido:
+
+Cards semelhantes ao Pinterest.
+
+Cada card deve mostrar:
+
+Foto;
+Nome;
+Descrição;
+Botões:
+
+Editar
+
+Excluir
+
+CRUDL OBRIGATÓRIO
+
+Implementar:
+
+CREATE
+
+Permitir adicionar uma nova publicação.
+
+Campos:
+
+Imagem;
+Nome;
+Descrição.
+READ
+
+Mostrar detalhes da publicação.
+
+UPDATE
+
+Permitir editar:
+
+Nome;
+Descrição;
+Imagem.
+DELETE
+
+Permitir remover uma publicação.
+
+LIST
+
+Exibir todas as publicações cadastradas.
+
+O — OUTPUT
+
+Desenvolver o projeto em etapas.
+
+ETAPA 1 — PLANEJAMENTO
+
+Criar:
+
+RF01 - Visualizar página inicial
+
+RF02 - Entrar na aplicação
+
+RF03 - Cadastrar inspiração de moda
+
+RF04 - Listar publicações
+
+RF05 - Editar publicação
+
+RF06 - Excluir publicação
+
+Requisitos não funcionais
+
+Criar:
+
+RNF01 - Interface responsiva
+
+RNF02 - Código organizado
+
+RNF03 - Boa experiência visual
+
+ETAPA 2 — ESTRUTURA ANGULAR
+
+Criar uma estrutura organizada:
+
+Exemplo:
+
+src/app/
+
+components/
+
+pages/
+
+services/
+
+models/
+
+assets/
+
+styles/
+
+Explicar a função de cada pasta.
+
+ETAPA 3 — COMPONENTES
+
+Criar:
+
+HomeComponent
+
+Responsável pela tela inicial.
+
+FeedComponent
+
+Responsável pela tela principal.
+
+CardModaComponent
+
+Responsável por mostrar cada publicação.
+
+FormModaComponent
+
+Responsável pelo cadastro e edição.
+
+ETAPA 4 — MODELO DE DADOS
+
+Criar interface TypeScript:
+
+Exemplo:
+
+Moda {
+
+id:number;
+
+titulo:string;
+
+descricao:string;
+
+imagem:string;
+
+}
+
+Explicar.
+
+ETAPA 5 — SERVICES
+
+Criar service para controlar os dados.
+
+Responsável por:
+
+Criar;
+Buscar;
+Editar;
+Excluir.
+ETAPA 6 — IMPLEMENTAÇÃO
+
+Gerar:
+
+Código completo arquivo por arquivo:
+
+Exemplo:
+
+home.component.ts
+
+home.component.html
+
+home.component.css
+
+moda.service.ts
+
+moda.model.ts
+
+Cada arquivo deve conter:
+
+Caminho;
+Código;
+Explicação.
+ETAPA 7 — DESIGN CSS
+
+Criar uma interface moderna utilizando CSS.
+
+Adicionar:
+
+Cards;
+Sombras;
+Espaçamentos;
+Botões estilizados;
+Layout inspirado em plataformas de moda.
+
+Não utilizar estilos extremamente complexos.
+
+RESTRIÇÕES
+Não criar login.
+Não criar funcionalidades desnecessárias.
+Não utilizar backend.
+Não utilizar tecnologias que não foram solicitadas.
+Não fazer uma aplicação impossível para alunos explicarem.
+
+Priorizar:
+
+Angular;
+TypeScript;
+HTML;
+CSS;
+CRUDL.
+CRITÉRIO FINAL
+
+O projeto deve parecer desenvolvido por estudantes de Ciência da Computação, demonstrando:
+
+✓ Uso correto do Angular
+✓ Aplicação CRUDL funcionando
+✓ Interface bonita e relacionada à moda
+✓ Código organizado
+✓ Domínio do funcionamento da aplicação
